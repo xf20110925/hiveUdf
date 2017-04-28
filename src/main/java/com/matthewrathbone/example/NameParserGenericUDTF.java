@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
 import org.apache.hadoop.hive.ql.metadata.HiveException;
 import org.apache.hadoop.hive.ql.udf.generic.GenericUDTF;
@@ -44,7 +45,7 @@ public class NameParserGenericUDTF extends GenericUDTF {
 		    ArrayList<Object[]> result = new ArrayList<Object[]>();
 		  
 		    // ignoring null or empty input
-		    if (name == null || name.isEmpty()) {
+		    if (StringUtils.isBlank(name)) {
 		      return result;
 		    }
 		    
